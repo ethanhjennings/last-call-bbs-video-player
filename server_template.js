@@ -4,7 +4,7 @@ let frames = [
 
 let filename = "<<filename>>";
 let frame_idx = 0;
-
+let counter = 0;
 let running = true;
 
 function getName()
@@ -15,8 +15,6 @@ function getName()
 function onConnect()
 {
 }
-
-let counter = 0;
 
 function onUpdate() {
   clearScreen();
