@@ -5,8 +5,8 @@ Video player for the Netronics Connect feature of Last Call BBS!
 
 # Controls
 Space - Play/Pause  
-Right - Advance a frame  
-Left - Go back a frame  
+Right/J - Advance a frame  
+Left/L - Go back a frame  
 
 ## Installation
 If you just want to see my example, you can copy `rickroll.js` to your `servers` folder and it should appear in the game.
