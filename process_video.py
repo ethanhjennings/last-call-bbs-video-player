@@ -52,13 +52,15 @@ if __name__ == "__main__":
             # Only render every nth frame so that the file size isn't too big
             if count % frame_skip == 0:
                 grayscale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-                resized = cv2.resize(grayscale, (term_width, term_height))
+                denoised = cv2.fastNlMeansDenoising(grayscale, h=10)
+                resized = cv2.resize(denoised, (term_width, term_height))
+                #cv2.imwrite('out.jpg', resized)
                 data_array_str += "// Frame " + str(count) + '\n'
                 data_array_str += img_to_array_str(resized) + ",\n\n"
 
     with open('server_template.js') as f:
         server_template_str = f.read()
-   
+
     # Populate template
     server_template_str = server_template_str.replace("<<frames>>", data_array_str)
     server_template_str = server_template_str.replace("<<name>>", name)
